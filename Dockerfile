@@ -14,4 +14,5 @@ RUN apk add -U ca-certificates libffi libstdc++ && \
 
 EXPOSE 8080
 
-CMD ["gunicorn", "-b", "0.0.0.0:8080", "httpbin:app"]
+# CMD ["gunicorn", "-b", "0.0.0.0:8080", "httpbin:app"]
+CMD ["httpbin/startup.sh"]

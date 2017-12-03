@@ -57,6 +57,11 @@ tmpl_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
 app = Flask(__name__, template_folder=tmpl_dir)
 app.debug = bool(os.environ.get('DEBUG'))
 
+if 'DELAY_START_ACCEPT' in os.environ:
+    app.logger.info("Delaying accepting of connections")
+
+    time.sleep(int(os.environ['DELAY_START_ACCEPT']))
+
 # Setup Flask-Common.
 common = Common(app)
 
