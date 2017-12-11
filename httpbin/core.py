@@ -530,6 +530,10 @@ def digest_auth(qop=None, user='user', passwd='passwd', algorithm='MD5', stale_a
     return response
 
 
+@app.route('/kill')
+def kill():
+    os._exit(-1)
+
 @app.route('/delay/<delay>')
 def delay_response(delay):
     """Returns a delayed response"""
