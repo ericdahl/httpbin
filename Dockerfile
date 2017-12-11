@@ -16,7 +16,7 @@ EXPOSE 8080
 
 # Add 1 GB of garbage to the image for testing some special cases
 # with ECS
-RUN dd if=/dev/urandom of=/garbage.bin bs=1024 count=1024000
+#RUN dd if=/dev/urandom of=/garbage.bin bs=1024 count=1024000
 
 # CMD ["gunicorn", "-b", "0.0.0.0:8080", "httpbin:app"]
 CMD ["httpbin/startup.sh"]
