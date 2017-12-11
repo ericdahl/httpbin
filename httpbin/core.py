@@ -15,6 +15,7 @@ import time
 import uuid
 import argparse
 
+import sys
 from flask import Flask, Response, request, render_template, redirect, jsonify as flask_jsonify, make_response, url_for
 from flask_common import Common
 from six.moves import range as xrange
@@ -532,7 +533,8 @@ def digest_auth(qop=None, user='user', passwd='passwd', algorithm='MD5', stale_a
 
 @app.route('/kill')
 def kill():
-    os._exit(-1)
+    print('/kill called - exiting')
+    sys.exit(1)
 
 @app.route('/delay/<delay>')
 def delay_response(delay):
