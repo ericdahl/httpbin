@@ -5,4 +5,4 @@ if [ -n "${DELAY_START_CONNECT}" ]; then
     sleep "${DELAY_START_CONNECT}"
 fi
 
-gunicorn -b 0.0.0.0:8080 httpbin:app
+gunicorn -b 0.0.0.0:8080 --access-logfile - httpbin:app
